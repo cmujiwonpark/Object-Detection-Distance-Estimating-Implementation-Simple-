@@ -29,30 +29,28 @@ style = ttk.Style()
 style.configure("Custom.TButton", foreground="black", background="black", font=("Arial", 12, "bold"))
 
 def notify():
-    text_label.config(state=tk.NORMAL)  # Enable editing the text widget
-    text_label.delete("1.0", tk.END)  # Clear existing content
-    text_label.insert(tk.END, notifier)  # Insert the guide text
-    # Insert the image at the end and tag it for easy removal
+    text_label.config(state=tk.NORMAL)  
+    text_label.delete("1.0", tk.END)  
+    text_label.insert(tk.END, notifier) 
     text_label.image_create(tk.END, image=warning_sign, padx=10, pady=10, align='baseline')
-    text_label.config(state=tk.DISABLED)  # Disable editing the text widget
-    text_label.configure(font=("Arial", 30, "bold"))  # Set the font to bold
+    text_label.config(state=tk.DISABLED)  
+    text_label.configure(font=("Arial", 30, "bold")) 
 
 def denotify():
-    text_label.config(state=tk.NORMAL)  # Enable editing the text widget
-    text_label.delete("1.0", tk.END)  # Clear existing content
-    text_label.insert(tk.END, denotifier)  # Insert the guide text
-    text_label.config(state=tk.DISABLED)  # Disable editing the text widget
-    text_label.configure(font=("Arial", 30, "bold"))  # Set the font to bold
+    text_label.config(state=tk.NORMAL)  
+    text_label.delete("1.0", tk.END) 
+    text_label.insert(tk.END, denotifier)
+    text_label.config(state=tk.DISABLED)  
+    text_label.configure(font=("Arial", 30, "bold"))
 
 # creating all buttons
 button1 = ttk.Button(window, text="Waymake", style="Custom.TButton")
 button2 = ttk.Button(window, text="Stop Waymakers", style="Custom.TButton")
 
-# arranging
+# arranging buttons
 button1.grid(row=1, column=1, padx=10, pady=10)
 button2.grid(row=1, column=2, padx=10, pady=10)
 
-# Create a text widget for displaying guide
 text_label = tk.Text(window, font=("Arial", 10), width=160, height=35, state=tk.DISABLED)
 text_label.grid(row=2, column=1, columnspan=4, padx=10, pady=10)
 
@@ -155,14 +153,6 @@ def start_webcam():
 def stop_webcam():
     cap.release()
     cv2.destroyAllWindows()
-
-
-def display_list():
-    text_label.config(state=tk.NORMAL)  # Enable editing the text widget
-    text_label.delete("1.0", tk.END)  # Clear existing content
-    text_label.insert(tk.END, notifier)  # Insert the guide text
-    text_label.config(state=tk.DISABLED)  # Disable editing the text widget
-    text_label.configure(font=("Arial", 12, "bold"))  # Set the font to bold
 
 # Button actions
 button1.configure(command=start_webcam)
